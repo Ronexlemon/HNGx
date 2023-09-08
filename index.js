@@ -26,7 +26,7 @@ const currentUTC = new Date();
   const seconds = currentUTC.getUTCSeconds().toString().padStart(2, '0');
   const utc_time = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 
-    const github_file_url ='https://github.com/Ronexlemon/HNGx.git/Task1';
+    const github_file_url ='https://github.com/Ronexlemon/HNGx/blob/master/index.js';
     const github_repo_url ="https://github.com/Ronexlemon/HNGx.git";
     const status_code= 200;
     if(!slack_name && !track){
