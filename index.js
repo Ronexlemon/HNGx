@@ -5,7 +5,13 @@ const PORT = process.env.PORT || 3000;
 app.get('/api',(req,res)=>{
     const {slack_name, track} = req.query;
     const current_day = new Date().toLocaleDateString('en-US',{weekday:'long'});
-    const utc_time = new Date().toISOString();
+    // const utc_time = new Date().toISOString();
+    // Get the current UTC time with validation of +/-2 hours
+  const currentUTC = new Date();
+  const offsetHours = currentUTC.getTimezoneOffset() / 60;
+  const utc_time = new Date(
+    currentUTC.getTime() + (offsetHours >= -2 && offsetHours <= 2 ? 0 : -offsetHours) * 60 * 60 * 1000
+  ).toISOString();
     const github_file_url ='https://github.com/Ronexlemon/HNGx.git/Task1';
     const github_repo_url ="https://github.com/Ronexlemon/HNGx.git";
     const status_code= 200;
