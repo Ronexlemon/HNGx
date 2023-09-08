@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.get('/info',(req,res)=>{
+app.get('/api',(req,res)=>{
     const {slack_name, track} = req.query;
     const current_day = new Date().toLocaleDateString('en-US',{weekday:'long'});
     const utc_time = new Date().toISOString();
